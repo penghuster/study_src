@@ -1,6 +1,8 @@
 #include <boost/statechart/state_machine.hpp>
 #include <boost/statechart/simple_state.hpp>
 #include <iostream>
+#include <stdio.h>
+#include <string.h>
 using namespace std;
 namespace sc = boost::statechart;
 
@@ -34,6 +36,11 @@ int main()
     //这将触发 初始状态 Greeting 的构造
     myMachine.initiate();
    // 当离开 main()时，myMachine 的析构将导致当前激活状态被析构
+   printf("\n\n\n");
+    char buf[256] = {0};
+    sprintf(buf, "%c%s", '\003', "gogogog\n");
+    printf("buf = %d, %d\n", strlen(buf), strlen("gogogog"));
+    printf("%s", buf ); 
     return 0;
 }
 
